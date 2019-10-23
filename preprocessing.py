@@ -32,8 +32,8 @@ def display(a, b, title1="Original", title2="Edited"):
 
 def processing(data):
     # loading image
-    # Getting 3 images to work with
-    img = [cv2.imread(i, cv2.IMREAD_UNCHANGED) for i in data[:3]]
+    # Getting images to work with
+    img = [cv2.imread(i, cv2.IMREAD_UNCHANGED) for i in data]
     print('Original size', img[0].shape)
     # --------------------------------
     # setting dim of the resize
