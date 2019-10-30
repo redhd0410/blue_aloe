@@ -60,7 +60,7 @@ def processing(data):
         no_noise.append(blur)
 
     image = no_noise[1]
-    display(original, image, 'Original', 'Blured')
+    display(original, image, 'Original', 'Blurred')
     # ---------------------------------
 
     # Segmentation
@@ -91,6 +91,7 @@ def processing(data):
 
 ## body
 data = loadImages(image_path)
+print(data)
 processing(data)
 
 
