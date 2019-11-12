@@ -1,6 +1,6 @@
 import numpy as np
 import tensorflow as tf
-import cv2 as cv
+import cv2 
 
 # Read the graph.
 with tf.gfile.FastGFile('frozen_inference_graph.pb', 'rb') as f:
@@ -13,10 +13,10 @@ with tf.Session() as sess:
     tf.import_graph_def(graph_def, name='')
 
     # Read and preprocess an image.
-    img = cv.imread('example.jpg')
+    img = cv2.imread('example.jpg')
     rows = img.shape[0]
     cols = img.shape[1]
-    inp = cv.resize(img, (300, 300))
+    inp = cv2.resize(img, (300, 300))
     inp = inp[:, :, [2, 1, 0]]  # BGR2RGB
 
     # Run the model
@@ -37,8 +37,8 @@ with tf.Session() as sess:
             y = bbox[0] * rows
             right = bbox[3] * cols
             bottom = bbox[2] * rows
-            cv.rectangle(img, (int(x), int(y)), (int(right), int(bottom)), (125, 255, 51), thickness=2)
+            cv2.rectangle(img, (int(x), int(y)), (int(right), int(bottom)), (125, 255, 51), thickness=2)
 
-cv.imshow('TensorFlow MobileNet-SSD', img)
-cv.waitKey()
+cv2.imshow('TensorFlow MobileNet-SSD', img)
+cv2.waitKey()
 
