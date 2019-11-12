@@ -1,9 +1,11 @@
+# this code is for running models without opencv
+
 import numpy as np
 import tensorflow as tf
 import cv2 
 
 # Read the graph.
-with tf.gfile.FastGFile('frozen_inference_graph.pb', 'rb') as f:
+with tf.gfile.FastGFile('frozen_inference_graph.pb', 'rb') as f: // pb file is a trained model set
     graph_def = tf.GraphDef()
     graph_def.ParseFromString(f.read())
 
