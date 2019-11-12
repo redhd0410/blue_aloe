@@ -1,6 +1,8 @@
+# this code is for running models without opencv
+
 import cv2
 
-cvNet = cv2.dnn.readNetFromTensorflow('frozen_inference_graph.pb', 'graph.pbtxt')
+cvNet = cv2.dnn.readNetFromTensorflow('frozen_inference_graph.pb', 'graph.pbtxt') #pb file is a trained model set
 
 img = cv2.imread('example.jpg')
 rows = img.shape[0]
